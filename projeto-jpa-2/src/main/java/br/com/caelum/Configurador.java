@@ -51,6 +51,16 @@ public class Configurador extends WebMvcConfigurerAdapter {
 		return lojas;
 	}
 	
+//	@Bean
+//	public OpenEntityManagerInViewInterceptor getOpenEntityManagerInViewInterceptor() {
+//		return new OpenEntityManagerInViewInterceptor();
+//	}
+//	
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		registry.addWebRequestInterceptor(getOpenEntityManagerInViewInterceptor());
+//	}
+	
 	@Bean
 	public MessageSource messageSource() { 
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -89,5 +99,4 @@ public class Configurador extends WebMvcConfigurerAdapter {
 			
 		});
 	}
-	
 }
