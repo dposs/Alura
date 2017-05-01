@@ -9,13 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedEntityGraphs;
 import javax.persistence.NamedSubgraph;
+import javax.persistence.Version;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
@@ -57,6 +57,8 @@ public class Produto {
 	@ManyToOne
 	private Loja loja;
 	
+	@Version
+	private int versao;
 	
 	public String getDescricao() {
 		return descricao;
@@ -118,5 +120,13 @@ public class Produto {
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+	
+	public void setVersao(int versao) {
+		this.versao = versao;
+	}
+	
+	public int getVersao() {
+		return versao;
 	}
 }
