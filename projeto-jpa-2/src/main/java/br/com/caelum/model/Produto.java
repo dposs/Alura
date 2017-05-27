@@ -19,6 +19,8 @@ import javax.persistence.Version;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -31,6 +33,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @DynamicUpdate
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Produto {
 
 	@Id
@@ -44,6 +47,7 @@ public class Produto {
 	private String linkDaFoto;
 	
 	@ManyToMany
+	@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 	@NotEmpty

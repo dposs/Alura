@@ -47,6 +47,7 @@ public class ProdutoDao {
 		
 		return em.createQuery(query)
 				.setHint(QueryHints.HINT_LOADGRAPH, graph)
+				.setHint(QueryHints.HINT_CACHEABLE, "true")
 				.getSingleResult();
 	}
 
@@ -118,6 +119,7 @@ public class ProdutoDao {
 		
 		return em.createQuery(query)
 				.setHint(QueryHints.HINT_LOADGRAPH, graph)
+				.setHint(QueryHints.HINT_CACHEABLE, "true")
 				.getResultList();
 	}
 
